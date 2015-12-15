@@ -1,10 +1,9 @@
-CC=gcc
-CFLAGS=-Wall -Wno-unused-function -O2
-PROG=fastq-join
+CC=g++
+CFLAGS=-O3 -I.
 
-all: $(PROG)
+all: fastq-join
 
-fastq-join: fastq-join.cpp fastq-lib.cpp fastq-lib.h
+%: %.cpp fastq-lib.cpp fastq-lib.h
 	$(CC) $(CFLAGS) $< fastq-lib.cpp -o $@
 
 check:
