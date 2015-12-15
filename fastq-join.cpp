@@ -28,8 +28,8 @@ See "void usage" below for usage.
 
 */
 
-#define VERSION "1.02"
-#define SVNREV 999
+#define VERSION "1.3"
+#define SVNREV 0
 
 void usage(FILE *f);
 int debug=0;

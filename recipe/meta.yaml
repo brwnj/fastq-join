@@ -1,10 +1,10 @@
 package:
   name: fastq-join
-  version: 1.02.999
+  version: 1.3.0
 build:
   number: 1
 source:
-  fn: fastq-join-1.02.999.tar.gz
+  fn: fastq-join-1.3.0.tar.gz
   url: https://github.com/brwnj/fastq-join/archive/v1.02.999.tar.gz
 requirements:
   build:

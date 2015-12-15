@@ -14,6 +14,9 @@ cd fastq-join
 make
 ```
 
+Some tests are failing when building on OS X versus Redhat 6.6. OS X gives
+"nan" while Redhat gives "-nan".
+
 # Example Usage
 
 ```
