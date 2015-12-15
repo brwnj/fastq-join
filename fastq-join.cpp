@@ -29,7 +29,7 @@ See "void usage" below for usage.
 */
 
 #define VERSION "1.3"
-#define SVNREV 0
+#define SVNREV 1
 
 void usage(FILE *f);
 int debug=0;
@@ -53,7 +53,7 @@ int main (int argc, char **argv) {
     bool norevcomp = false;
     bool allow_ex = false;
 
-	while (	(c = getopt (argc, argv, "-dRnbeo:t:v:m:p:r:xV")) != -1) {
+	while (	(c = getopt (argc, argv, "-dhRnbeo:t:v:m:p:r:xV")) != -1) {
 		switch (c) {
 		case '\1':
 			if (!in[0])
@@ -72,6 +72,7 @@ int main (int argc, char **argv) {
 			  }
 			  out[out_n++] = optarg;
 			  break;
+        case 'h': usage(stdout); exit(0); break;
 		case 'r': orep = optarg; break;
 		case 't': threads = atoi(optarg); break;
         case 'V': printf("Version: %s.%d\n", VERSION, SVNREV); return 0; break;
@@ -399,8 +400,9 @@ int main (int argc, char **argv) {
 }
 
 void usage(FILE *f) {
-	fputs(
+	fprintf(f,
 "Usage: fastq-join [options] <read1.fq> <read2.fq> [mate.fq] -o <read.%.fq>\n"
+"Version: %s.%d\n"
 "\n"
 "Joins two paired-end reads on the overlapping ends.\n"
 "\n"
@@ -419,10 +421,10 @@ void usage(FILE *f) {
 "\n"
 "  You can supply 3 -o arguments, for un1, un2, join files, or one \n"
 "argument as a file name template.  The suffix 'un1, un2, or join' is \n"
-"appended to the file, or they replace a %-character if present.\n"
+"appended to the file, or they replace a %%-character if present.\n"
 "\n"
 "  If a 'mate' input file is present (barcode read), then the files\n"
 "'un3' and 'join2' are also created.\n"
 "\n"
-	,f);
+	,VERSION,SVNREV);
 }
