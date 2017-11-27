@@ -1,4 +1,4 @@
-#`fastq-join`
+# `fastq-join`
 
 This is the work of:
 
